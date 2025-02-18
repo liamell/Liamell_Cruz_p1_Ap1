@@ -10,6 +10,6 @@ public class Contexto : DbContext
     {
     }
 
-    public DbSet<Ejemplo> Ejemplo{ get; set; }   
+    public DbSet<Aportes> Aportes{ get; set; }   
 
 }
