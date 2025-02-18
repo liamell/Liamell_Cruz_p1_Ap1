@@ -20,7 +20,7 @@ public class Aportes
     public string Observacion { get; set; }
 
     [Required(ErrorMessage = "Campo Obligatorio")]
-    public double Monto { get; set; }
+    public decimal Monto { get; set; }
 
 
 
