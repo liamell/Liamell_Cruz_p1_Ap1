@@ -1,6 +1,7 @@
 using Liamell_Cruz_p1_Ap1.Components;
 using Liamell_Cruz_p1_Ap1.DAL;
 using Liamell_Cruz_p1_Ap1.Models;
+using Liamell_Cruz_p1_Ap1.Service;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,9 @@ builder.Services.AddRazorComponents()
 var ConStr = builder.Configuration.GetConnectionString("SqlConStr");
 builder.Services.AddDbContextFactory<Contexto>(o => o.UseSqlServer(ConStr));
 
-builder.Services.AddScoped<Ejemplo>();
+builder.Services.AddScoped<AportesService>();
+
+builder.Services.AddBlazorBootstrap();
 
 var app = builder.Build();
 
