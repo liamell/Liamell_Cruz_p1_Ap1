@@ -24,6 +24,15 @@ public class AportesService(IDbContextFactory<Contexto> DbFactory)
 
     }
 
+    public async Task<bool> ExistePersona(int aporteId, string persona)
+    {
+        await using var contexto = await DbFactory.CreateDbContextAsync();
+        return await contexto.Aportes
+            .AnyAsync(a => a.AporteId != aporteId
+            && a.Persona.ToLower().Equals(persona.ToLower()));
+    }
+
+
     private async Task<bool> Insertar(Aportes aportes)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
